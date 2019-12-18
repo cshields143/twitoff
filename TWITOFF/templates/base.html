@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Twitoff! - {{title}}</title>
+</head>
+<body>
+  <h1>Twitoff is so cool!</h1>
+  <p>Someday, content will go here!</p>
+  <ul>
+    {% for user in users %}
+    <li>{{user.name}}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
