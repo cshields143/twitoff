@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <title>Twitoff! - {{title}}</title>
+  <link rel="stylesheet" href="https://unpkg.com/picnic">
 </head>
 <body>
-  <h1>Twitoff is so cool!</h1>
-  <p>Someday, content will go here!</p>
-  <ul>
-    {% for user in users %}
-    <li>{{user.name}}</li>
-    {% endfor %}
-  </ul>
+  {% block content %}
+  <form action="/user" method="post">
+    <input name="user_name" placeholder="User to add">
+    <input type="submit" value="Add user">
+  </form>
+  {% endblock %}
 </body>
 </html>

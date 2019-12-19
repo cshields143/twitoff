@@ -25,13 +25,16 @@ def create_app():
 
   @app.route('/user', methods=['POST'])
   @app.route('/user/<name>', methods=['GET'])
-  def user(name=None, msg=''):
+  def user(name=None, message=''):
+    name = name or request.values['user_name']
     try:
       if request.method == 'POST':
         add_or_update_user(name)
-        msg = f'User {name} successfully added'
+        message = f'User {name} successfully added'
       tweets = User.query.filter(User.name == name).one().tweets
     except Exception as e:
-      pass
+      message = f'Error adding {name}: {e}'
+      tweets = []
+    return render_template('user.html', title=name, tweets=tweets, message=message)
     
   return app
