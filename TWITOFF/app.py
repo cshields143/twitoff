@@ -55,3 +55,6 @@ def create_app():
     return render_template('prediction.html', title='Prediction', message=message)
     
   return app
+
+if __name__ == '__main__':
+  app.run()
